@@ -3,7 +3,13 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [project]
+name = "safejax"
 authors = [{name = "Alvaro Bartolome", email = "alvarobartt@yahoo.com"}]
+description = "Serialize JAX, Flax, Haiku, or Objax model params with `safetensors`"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+dynamic = ["version"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
@@ -12,27 +18,21 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-  "jaxlib~=0.3.25",
-  "jax~=0.3.25",
-  "objax~=1.6.0",
-  "flax~=0.6.2",
-  "dm-haiku~=0.0.9",
-  "safetensors~=0.2.5",
-  "fsspec~=2022.11.0",
+  "jaxlib>=0.4.1,<0.5.0",
+  "jax>=0.4.1,<0.5.0",
+  "objax>=1.6.0,<2.0.0",
+  "flax>=0.6.2,<0.9.0",
+  "dm-haiku>=0.0.9,<0.1.0",
+  "safetensors>=0.2.5,<0.5.0",
+  "fsspec>=2022.11.0,<2025.0.0",
 ]
-description = "Serialize JAX, Flax, Haiku, or Objax model params with `safetensors`"
-dynamic = ["version"]
-keywords = []
-license = "MIT"
-name = "safejax"
-readme = "README.md"
-requires-python = ">=3.7"
 
 [project.urls]
 Documentation = "https://alvarobartt.github.io/safejax"
@@ -107,7 +107,7 @@ features = [
 run = "pytest -s --durations 0 --disable-warnings"
 
 [[tool.hatch.envs.test.matrix]]
-python = ["37", "38", "39", "310"]
+python = ["37", "38", "39", "310", "311", "312"]
 
 [tool.hatch.envs.docs]
 features = [
